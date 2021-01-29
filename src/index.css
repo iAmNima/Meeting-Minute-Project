@@ -1,13 +1,236 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
+}y
+.DayPicker-Day.DayPicker-Day:hovor{
+  background-color: #16A085;
+}
+/****************** reservations component *********************/
+.reservation-card {
+  width: 450px;
+  background-color: rgba(231, 244, 255, 0.551);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(126, 126, 126, 0.1), 0 6px 20px 0 rgba(119, 119, 119, 0.19);
+  margin-bottom: 30px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.default_profile_pic {
+  height: 50px;
+  width: 50px;
 }
+/* room dropdown menu */
+.room-dropdown {
+  font-weight: 500;
+  font-size: x-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color:  #00e74db6;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  outline:none;
+}
+
+/****************** navbar component *********************/
+.navbar {
+  background-color:  rgba(22, 22, 22, 0.822);
+  color: #00e74de3;
+}
+
+.navbar-op {
+  color: #00e74de3;
+}
+
+.navbar-op:hover {
+  color: rgba(0, 0, 0, 0.822);
+}
+
+.navbar-list {
+  list-style: none;
+  display: inline-flex;
+}
+
+.navbar-list-item {
+  color: #00e74de3 ;
+  border-radius: 20px;
+  transition: all .3s ;
+}
+
+.navbar-list-item:hover {
+  text-decoration: wavy;
+  background-color: #00e74de3  ;
+  color: rgba(0, 0, 0, 0.822);
+}
+/************************ form reservation *******************/
+.form{
+  font-weight: 200;
+  width: 500px;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color:rgba(227, 237, 245, 0.551);
+  box-shadow: 0 4px 8px 0 rgba(126, 126, 126, 0.1), 0 6px 20px 0 rgba(119, 119, 119, 0.19);
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  outline:none;
+}
+.form-group{
+  width: 400px;
+  margin-left: 35px
+}
+.pre-information{
+  width: 400px;
+  margin-left: 35px;
+  background-color: rgba(165, 172, 170, 0.551);
+  border-radius: 10px;
+  border: none;
+  width: 400;
+  padding: 10px;
+}
+.name-form{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgba(172, 248, 225, 0.551);
+  border-radius: 10px;
+  border: none;
+  width: 400;
+  padding: 10px;
+}
+ .room-form{
+  font-weight: 400;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgba(172, 248, 225, 0.551);
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  outline:none;
+ }
+ .startTime-form{
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgba(172, 248, 225, 0.551);
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  outline:none;
+  margin-right: 5px;
+ }
+ .stopTime-form{
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgba(172, 248, 225, 0.551);
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  outline:none;
+  margin-top: 5px;
+ }
+ .btn-submit-form{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 400px;
+  border-radius: 10px;
+  background-color: #48C9B0;
+  padding: 10px;
+  border: none;
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-top: 10px;
+ }
+/************************ form login *******************/
+.form-Login{
+  font-weight: 500;
+  font-size: large;
+  padding: 25px;
+  width: 445px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color:rgba(227, 237, 245, 0.551);
+  box-shadow: 0 4px 8px 0 rgba(126, 126, 126, 0.1), 0 6px 20px 0 rgba(119, 119, 119, 0.19);
+  border-radius: 10px;
+  border: none;
+  outline:none;
+}
+.name-form-login{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color:#e8ebeb;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  width:  350px;
+}
+h1{
+  text-align: center;
+}
+.btn-form-login{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 500px;
+  border-radius: 10px;
+  background-color: #48C9B0;
+  padding: 10px;
+  border: none;
+}
+.image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+img{
+  border-radius: 50%;
+}
+
+/************************ Navbar *******************/
+.user-name{
+    margin-left:50px;
+    color: #00e74dc9 ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/************************ Navbar *******************/
+.error-notice {
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: small;
+  padding: 25px;
+  width: 445px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f8d6d6;
+  box-shadow: 0 4px 8px 0 rgba(126, 126, 126, 0.1), 0 6px 20px 0 rgba(119, 119, 119, 0.19);
+  border-radius: 10px;
+  border: none;
+  outline:none;
+}
+
+/* modal */
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+.modal1{
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+}
+.modal1 button{
+  color: #444;
+  border-color: #444;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: x-large;
+  border-radius: 20px;
+  background-color: #00e74db6 ;
+}
+.modal1 p{
+  color: #444;
+  font-weight: bold;
+  font-size: x-large;
+}
+
