@@ -1,13 +1,13 @@
-const router = require('express').Router();
-let Reservation = require('../models/reservation.model');
+const router = require("express").Router();
+let Reservation = require("../models/reservation.model");
 
-router.route('/').get((req, res) => {
+router.route("/").get((req, res) => {
   Reservation.find()
-    .then(reservations => res.json(reservations))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .then((reservations) => res.json(reservations))
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route('/add').post((req, res) => {
+router.route("/add").post((req, res) => {
   const name = req.body.name;
   const timeSlot = req.body.timeSlot;
   const day = req.body.day;
@@ -17,12 +17,22 @@ router.route('/add').post((req, res) => {
     name,
     timeSlot,
     day,
-    roomNr
+    roomNr,
   });
 
-  newPerson.save()
-    .then(() => res.json('Reservation added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
+  newPerson
+    .save()
+    .then(() => res.json("Reservation added!"))
+    .catch((err) => {
+      res.status(400).json("Error: " + err);
+      console.log(err);
+    });
+});
+
+router.route("/:id").delete((req, res) => {
+  Reservation.findByIdAndDelete(req.params.id)
+    .then(() => res.json("Reservation deleted."))
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
 module.exports = router;

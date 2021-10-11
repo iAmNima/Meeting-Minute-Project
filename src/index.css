@@ -1,15 +1,17 @@
 body {
-  font-family: 'Roboto', sans-serif;
-}y
-.DayPicker-Day.DayPicker-Day:hovor{
-  background-color: #16A085;
+  font-family: "Roboto", sans-serif;
+}
+y .DayPicker-Day.DayPicker-Day:hovor {
+  background-color: #16a085;
 }
 /****************** reservations component *********************/
 .reservation-card {
+  position: relative;
   width: 450px;
   background-color: rgba(231, 244, 255, 0.551);
   border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(126, 126, 126, 0.1), 0 6px 20px 0 rgba(119, 119, 119, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(126, 126, 126, 0.1),
+    0 6px 20px 0 rgba(119, 119, 119, 0.19);
   margin-bottom: 30px;
 }
 
@@ -22,16 +24,29 @@ body {
   font-weight: 500;
   font-size: x-large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color:  #00e74db6;
+  background-color: #00e74db6;
   border-radius: 10px;
   border: none;
   padding: 10px;
-  outline:none;
+  outline: none;
 }
 
+.delete-icon-reservation {
+  opacity: 50%;
+  transition: 0.3s;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+}
+.delete-icon-reservation:hover {
+  opacity: 100%;
+  transform: scale(1.2);
+  cursor: pointer;
+}
 /****************** navbar component *********************/
 .navbar {
-  background-color:  rgba(22, 22, 22, 0.822);
+  background-color: rgba(22, 22, 22, 0.822);
   color: #00e74de3;
 }
 
@@ -49,34 +64,35 @@ body {
 }
 
 .navbar-list-item {
-  color: #00e74de3 ;
+  color: #00e74de3;
   border-radius: 20px;
-  transition: all .3s ;
+  transition: all 0.3s;
 }
 
 .navbar-list-item:hover {
   text-decoration: wavy;
-  background-color: #00e74de3  ;
+  background-color: #00e74de3;
   color: rgba(0, 0, 0, 0.822);
 }
 /************************ form reservation *******************/
-.form{
+.form {
   font-weight: 200;
   width: 500px;
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color:rgba(227, 237, 245, 0.551);
-  box-shadow: 0 4px 8px 0 rgba(126, 126, 126, 0.1), 0 6px 20px 0 rgba(119, 119, 119, 0.19);
+  background-color: rgba(227, 237, 245, 0.551);
+  box-shadow: 0 4px 8px 0 rgba(126, 126, 126, 0.1),
+    0 6px 20px 0 rgba(119, 119, 119, 0.19);
   border-radius: 10px;
   border: none;
   padding: 10px;
-  outline:none;
+  outline: none;
 }
-.form-group{
+.form-group {
   width: 400px;
-  margin-left: 35px
+  margin-left: 35px;
 }
-.pre-information{
+.pre-information {
   width: 400px;
   margin-left: 35px;
   background-color: rgba(165, 172, 170, 0.551);
@@ -85,7 +101,7 @@ body {
   width: 400;
   padding: 10px;
 }
-.name-form{
+.name-form {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: rgba(172, 248, 225, 0.551);
   border-radius: 10px;
@@ -93,7 +109,7 @@ body {
   width: 400;
   padding: 10px;
 }
- .room-form{
+.room-form {
   font-weight: 400;
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -101,88 +117,88 @@ body {
   border-radius: 10px;
   border: none;
   padding: 10px;
-  outline:none;
- }
- .startTime-form{
+  outline: none;
+}
+.startTime-form {
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: rgba(172, 248, 225, 0.551);
   border-radius: 10px;
   border: none;
   padding: 10px;
-  outline:none;
+  outline: none;
   margin-right: 5px;
- }
- .stopTime-form{
+}
+.stopTime-form {
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: rgba(172, 248, 225, 0.551);
   border-radius: 10px;
   border: none;
   padding: 10px;
-  outline:none;
+  outline: none;
   margin-top: 5px;
- }
- .btn-submit-form{
+}
+.btn-submit-form {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 400px;
   border-radius: 10px;
-  background-color: #48C9B0;
+  background-color: #48c9b0;
   padding: 10px;
   border: none;
   margin-left: 35px;
   margin-right: 35px;
   margin-top: 10px;
- }
+}
 /************************ form login *******************/
-.form-Login{
+.form-Login {
   font-weight: 500;
   font-size: large;
   padding: 25px;
   width: 445px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color:rgba(227, 237, 245, 0.551);
-  box-shadow: 0 4px 8px 0 rgba(126, 126, 126, 0.1), 0 6px 20px 0 rgba(119, 119, 119, 0.19);
+  background-color: rgba(227, 237, 245, 0.551);
+  box-shadow: 0 4px 8px 0 rgba(126, 126, 126, 0.1),
+    0 6px 20px 0 rgba(119, 119, 119, 0.19);
   border-radius: 10px;
   border: none;
-  outline:none;
+  outline: none;
 }
-.name-form-login{
+.name-form-login {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color:#e8ebeb;
+  background-color: #e8ebeb;
   border: none;
   border-radius: 10px;
   padding: 20px;
-  width:  350px;
+  width: 350px;
 }
-h1{
+h1 {
   text-align: center;
 }
-.btn-form-login{
+.btn-form-login {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 500px;
   border-radius: 10px;
-  background-color: #48C9B0;
+  background-color: #48c9b0;
   padding: 10px;
   border: none;
 }
-.image{
+.image {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
 }
-img{
+img {
   border-radius: 50%;
 }
 
 /************************ Navbar *******************/
-.user-name{
-    margin-left:50px;
-    color: #00e74dc9 ;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.user-name {
+  margin-left: 50px;
+  color: #00e74dc9;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
 
 /************************ Navbar *******************/
 .error-notice {
@@ -195,23 +211,24 @@ img{
   width: 445px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #f8d6d6;
-  box-shadow: 0 4px 8px 0 rgba(126, 126, 126, 0.1), 0 6px 20px 0 rgba(119, 119, 119, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(126, 126, 126, 0.1),
+    0 6px 20px 0 rgba(119, 119, 119, 0.19);
   border-radius: 10px;
   border: none;
-  outline:none;
+  outline: none;
 }
 
 /* modal */
-.backdrop{
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
-.modal1{
+.modal1 {
   max-width: 400px;
   margin: 0 auto;
   padding: 30px 20px;
@@ -219,18 +236,17 @@ img{
   border-radius: 10px;
   text-align: center;
 }
-.modal1 button{
+.modal1 button {
   color: #444;
   border-color: #444;
   font-weight: bold;
   margin-top: 10px;
   font-size: x-large;
   border-radius: 20px;
-  background-color: #00e74db6 ;
+  background-color: #00e74db6;
 }
-.modal1 p{
+.modal1 p {
   color: #444;
   font-weight: bold;
   font-size: x-large;
 }
-
