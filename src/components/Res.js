@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DayPicker from "react-day-picker";
-//import "../../node_modules/react-day-picker/lib/style";
+//import "react-day-picker/lib/style.css";
 import Reservations from "./reservations";
 
 const Res = () => {
