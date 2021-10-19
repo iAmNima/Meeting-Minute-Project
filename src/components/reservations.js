@@ -63,6 +63,9 @@ const Reservations = ({ day }) => {
         <option value="305">room 305</option>
       </select>
 
+    <button className="mb-4 availability" variant="primary">show availability</button>{' '} 
+  
+
       {reservations.map((reservation) => {
         if (
           reservation.day === day &&
