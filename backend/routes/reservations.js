@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const axios = require('axios');
 let Reservation = require("../models/reservation.model");
 
 router.route("/").get((req, res) => {
@@ -22,7 +23,18 @@ router.route("/add").post((req, res) => {
 
   newPerson
     .save()
-    .then(() => res.json("Reservation added!"))
+    .then(() => {
+      // send reservation update to door bell BE
+      axios.post('http://localhost:5001/reservations/emit', newPerson)
+          .then(res => {
+            console.log(`statusCode: ${res.status}`);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      // respond
+      res.json("Reservation added!");
+    })
     .catch((err) => {
       res.status(400).json("Error: " + err);
       console.log(err);

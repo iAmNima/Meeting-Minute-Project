@@ -13,7 +13,7 @@
     "@testing-library/user-event": "^12.5.0",
     "antd": "^4.9.4",
     "assert": "^2.0.0",
-    "axios": "^0.21.0",
+    "axios": "^0.21.4",
     "bcrypt": "^5.0.0",
     "concurrently": "^5.3.0",
     "date-fns": "^2.16.1",
