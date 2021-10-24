@@ -19,7 +19,7 @@ function useFormReservation() {
 
 function FormReservation({ day, setShowModal }) {
   const { userData, setUserData } = useContext(UserContext);
-
+  const {email , setEmail} = useState("");
   const [name, setName] = useState("");
   const [roomNr, setRoomNr] = useState();
   const [startTime, setStartTime] = useState("");
@@ -28,6 +28,7 @@ function FormReservation({ day, setShowModal }) {
   function mySubmitHandler(event) {
     event.preventDefault();
     const reservation = {
+      email:userData.user.UserEmail,
       name: userData.user.UserCn,
       roomNr: roomNr,
       timeSlot: startTime + " - " + stopTime,

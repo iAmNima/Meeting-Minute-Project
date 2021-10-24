@@ -19,15 +19,17 @@ export default function Login() {
 
   const SubmitData = async (e) => {
     let UserCn = "";
+    let UserEmail = "";
     e.preventDefault();
     try {
-      const loginUser = { username, password, UserCn };
+      const loginUser = { username, password, UserCn , UserEmail };
       console.log(loginUser);
       axios
         .post("http://localhost:5000/users/auth", loginUser)
         .then((Response) => {
           console.log(Response.data.cn);
           loginUser.UserCn = Response.data.cn;
+          loginUser.UserEmail = Response.data.mail;
           setUserData({
             user: loginUser,
           });
