@@ -70,7 +70,7 @@ const Reservations = ({ day }) => {
         if (
           reservation.day === day &&
           (reservation.roomNr == roomNr ||
-            (roomNr == 0 && reservation.roomNr !== 1))
+            (roomNr == 0 && reservation.roomNr !== 1) && !showAvailability)
         ) {
           console.log(reservation.roomNr);
           // only returning resurvations for that day:
