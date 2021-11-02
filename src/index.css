@@ -261,3 +261,28 @@ img {
   font-weight: bold;
   font-size: x-large;
 }
+
+/************************ day-picker *******************/
+
+.DayPicker-Day {
+  font-size: larger !important;
+  padding: 0.8em !important;
+  padding-top: 0.6em !important;
+  padding-bottom: 0.6em !important;
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+  background-color: #00e74db6 !important;
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+  position: relative;
+
+  background-color: #00e74db6 !important;
+  color: #f0f8ff;
+}
+
+.DayPicker:not(.DayPicker--interactionDisabled)
+  .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+  background-color: #00e74d1e !important;
+}
