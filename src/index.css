@@ -30,6 +30,17 @@ y .DayPicker-Day.DayPicker-Day:hovor {
   padding: 10px;
   outline: none;
 }
+.availability {
+  font-weight: 500;
+  font-size: x-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #00e74db6;
+  border-radius: 10px;
+  border: none;
+  padding: 7px;
+  outline: none;
+  margin-left: 10px;
+}
 
 .delete-icon-reservation {
   opacity: 50%;
