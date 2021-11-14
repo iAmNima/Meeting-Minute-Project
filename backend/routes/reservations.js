@@ -27,13 +27,7 @@ router.route("/add").post((req, res) => {
         .save()
         .then(() => {
             // send reservation update to door bell BE
-            axios.post('http://localhost:5001/reservations/emit', newPerson)
-                .then(res => {
-                    console.log(`statusCode: ${res.status}`);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
+            emitReservationUpdate(newPerson, 'add');
             // respond
             res.json("Reservation added!");
         })
@@ -45,8 +39,23 @@ router.route("/add").post((req, res) => {
 
 router.route("/:id").delete((req, res) => {
     Reservation.findByIdAndDelete(req.params.id)
-        .then(() => res.json("Reservation deleted."))
+        .then(() => {
+            // send reservation delete to door bell BE
+            emitReservationUpdate({_id: req.params.id}, 'delete');
+            res.json("Reservation deleted.");
+        })
         .catch((err) => res.status(400).json("Error: " + err));
 });
+
+function emitReservationUpdate(reservation, type) {
+    reservation.type = type;
+    axios.post('http://localhost:5001/reservations/emit', reservation)
+      .then(res => {
+          console.log(`statusCode: ${res.status}`);
+      })
+      .catch(error => {
+          console.error(error);
+      });
+}
 
 module.exports = router;
