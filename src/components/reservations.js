@@ -3,6 +3,8 @@ import profile_pic from "../assets/default_profile.png";
 import { motion } from "framer-motion";
 import UserContext from "../Context/UserContext";
 import axios from "axios";
+/* eslint-disable */
+
 
 const Reservations = ({ day }) => {
   let noReservation = true;
@@ -46,6 +48,8 @@ const Reservations = ({ day }) => {
       });
   }
 
+
+
   return (
     <div>
       <select
@@ -63,14 +67,16 @@ const Reservations = ({ day }) => {
         <option value="322">room 322</option>
         <option value="305">room 305</option>
       </select>
+      <button className="mb-4 availability" variant="primary" onClick={() =>{
+        setShowAvailability(!showAvailability)
+        }}>{showAvailability ? 'Hide Availability':'Show Availability'}</button>
 
-      <button className="mb-4 availability" variant="primary" onClick={() =>setShowAvailability(true)}>show availability</button>
 
       {reservations.map((reservation) => {
-        if (
+        if ( !showAvailability &&
           reservation.day === day &&
           (reservation.roomNr == roomNr ||
-            (roomNr == 0 && reservation.roomNr !== 1) && !showAvailability)
+            (roomNr == 0 && reservation.roomNr !== 1))
         ) {
           console.log(reservation.roomNr);
           // only returning resurvations for that day:
@@ -116,7 +122,7 @@ const Reservations = ({ day }) => {
             </motion.div>
           );
         }
-                // availabilities: && reservation.roomNr !== 510 && reservation.roomNr !== 305 && reservation.roomNr !== 322 && reservation.roomNr !== 402,, && !reservations
+                // showing availabilities instead of reservations:
                 if(reservation.day === day && reservation.roomNr == 1 && showAvailability){
                   return(
                     <motion.div
@@ -158,6 +164,7 @@ const Reservations = ({ day }) => {
                     </motion.div>
                   );
                 }
+                
       })}
       {noReservation == true && <h4>No reservation on this day!</h4>}
     </div>
