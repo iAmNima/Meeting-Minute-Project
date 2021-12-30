@@ -64,11 +64,7 @@ y .DayPicker-Day.DayPicker-Day:hovor {
 .navbar-op {
   color: #00e74de3;
 }
-.navbar-opCal {
-  color: #00e74de3;
-  font-weight: 500;
-  font-size: large;
-}
+
 .navbar-op:hover {
   color: rgba(0, 0, 0, 0.822);
 }

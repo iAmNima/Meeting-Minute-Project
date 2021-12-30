@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { Link, useHistory } from "react-router-dom";
 import Icon from "../image/OIP.jfif";
 import UserContext from "../Context/UserContext";
 import { motion } from "framer-motion";
-import ICalendarLink from "react-icalendar-link";
+import axios from "axios";
 
 const Navbar = () => {
   const { userData, setUserData } = useContext(UserContext);
+  const [CalAvailabilities, setCalAvailabilities] = useState([]);
+  const [UserCal, setUserCal] = useState([]);
   const history = useHistory();
   const login = () => history.push("/login");
   const logout = () => {
@@ -18,20 +20,24 @@ const Navbar = () => {
     console.log(userData.user);
   };
 
-  function CreateCal() {
+  //useEffects:
+  useEffect(() => {
+    console.log("useEffect used.");
+    //------getting data from database when the component renders:
+    axios
+        .get("http://localhost:5000/CalAvailabilities/")
+        .then((Response) => {
+          setCalAvailabilities(Response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  }, []);
 
+  function DownloadCal() {
+    setUserCal(CalAvailabilities.filter((CalAvailabilities)=>CalAvailabilities.name === userData.user.UserCn));
+    console.log(UserCal);
   }
-  const CalEvent = {
-    title: "My Title",
-    description: "My Description",
-    startTime: "2021-12-07T10:30:00+10:00",
-    endTime: "2021-12-07T12:00:00+10:00",
-    location: "10 Carlotta St, Artarmon NSW 2064, Australia",
-    attendees: [
-      "Hello World <hello@world.com>",
-      "Hey <hey@test.com>",
-    ]
-  };
 
   return (
     <div>
@@ -73,12 +79,10 @@ const Navbar = () => {
                 </Link>
                 <Link to="/" style={{ textDecoration: "none" }}>
                   <li
-                      onClick={CreateCal}
+                      onClick={DownloadCal}
                       className="navbar-list-item px-3 py-2 mx-1"
                   >
-                    <ICalendarLink className="my-auto navbar-opCal " event={CalEvent}>
-                      Add to Calendar
-                    </ICalendarLink>
+                    <h4 className="my-auto navbar-op">Export Calendar</h4>
                   </li>
                 </Link>
                 <Link to="/" style={{ textDecoration: "none" }}>

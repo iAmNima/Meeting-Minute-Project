@@ -26,9 +26,11 @@ app.use(express.json());
 
 const reservationsRouter = require("./routes/reservations");
 const usersRouter = require("./routes/users");
+const calAvailabilitiesRouter = require("./routes/CalAvailabilities")
 
 app.use("/reservations", reservationsRouter);
 app.use("/users", usersRouter);
+app.use("/CalAvailabilities", calAvailabilitiesRouter);
 
 //listening on the port:
 app.listen(port, () => {
