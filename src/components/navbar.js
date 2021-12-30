@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import Icon from "../image/OIP.jfif";
 import UserContext from "../Context/UserContext";
 import { motion } from "framer-motion";
+import ICalendarLink from "react-icalendar-link";
 
 const Navbar = () => {
   const { userData, setUserData } = useContext(UserContext);
@@ -15,6 +16,21 @@ const Navbar = () => {
     });
     localStorage.setItem("auth-token", "");
     console.log(userData.user);
+  };
+
+  function CreateCal() {
+
+  }
+  const CalEvent = {
+    title: "My Title",
+    description: "My Description",
+    startTime: "2021-12-07T10:30:00+10:00",
+    endTime: "2021-12-07T12:00:00+10:00",
+    location: "10 Carlotta St, Artarmon NSW 2064, Australia",
+    attendees: [
+      "Hello World <hello@world.com>",
+      "Hey <hey@test.com>",
+    ]
   };
 
   return (
@@ -54,6 +70,16 @@ const Navbar = () => {
                   >
                     <h4 className="my-auto navbar-op">Add reservation</h4>
                   </motion.li>
+                </Link>
+                <Link to="/" style={{ textDecoration: "none" }}>
+                  <li
+                      onClick={CreateCal}
+                      className="navbar-list-item px-3 py-2 mx-1"
+                  >
+                    <ICalendarLink className="my-auto navbar-opCal " event={CalEvent}>
+                      Add to Calendar
+                    </ICalendarLink>
+                  </li>
                 </Link>
                 <Link to="/" style={{ textDecoration: "none" }}>
                   <li
