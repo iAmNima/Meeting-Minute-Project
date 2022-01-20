@@ -128,7 +128,6 @@ router.post("/auth", async (req, res) => {
     };
     let user = await authenticate(options);
     res.json(user);
-    console.log(user);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

@@ -38,28 +38,26 @@ const Navbar = () => {
     }, []);
 
     function CreateEvent(UserCal) {
-
-       let events =  UserCal.map(e => {
-        console.log(e);
-          var time = moment(e.day, "DD.MM.YYYY");
-          var tempSt = e.timeSlot.split(" - ");
-          var st_1 = tempSt[0].split(":");
-          var duration = moment.duration(moment(tempSt[1],"hh:mm").diff(moment(tempSt[0],"hh:mm"))).asMinutes();
-          return {
-            title: 'Availability',
-            start: [time.year(), time.month()+1, time.day(), Number(st_1[0]), Number(st_1[1])],
-            duration: {minutes: duration},
-          }
+        let events = UserCal.map(e => {
+            const time = moment(e.day, "DD.MM.YYYY");
+            const tempSt = e.timeSlot.split(" - ");
+            const st_1 = tempSt[0].split(":");
+            const duration = moment.duration(moment(tempSt[1], "hh:mm").diff(moment(tempSt[0], "hh:mm"))).asMinutes();
+            return {
+                title: 'Availability',
+                start: [time.year(), time.month() + 1, time.day(), Number(st_1[0]), Number(st_1[1])],
+                duration: {minutes: duration},
+            }
         })
-        console.log(events);
         const {error, value} = ics.createEvents(events)
-        console.log(value)
 
-        var element = document.createElement('a');
+        // create virtual fake link for download
+        const element = document.createElement('a');
         element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(value));
         element.setAttribute('download', 'event.ics');
         element.style.display = 'none';
         document.body.appendChild(element);
+        // click virtual link for download and destroy
         element.click();
         document.body.removeChild(element);
     }
@@ -68,7 +66,6 @@ const Navbar = () => {
     function DownloadCal() {
         setUserCal(CalAvailabilities.filter((CalAvailabilities) => CalAvailabilities.name === userData.user.UserCn));
         CreateEvent(UserCal);
-        console.log(UserCal);
     }
 
     return (
@@ -80,11 +77,10 @@ const Navbar = () => {
                             <h4 className="navbar-op">Welcome</h4>
                         </li>
                         <li>
-                            {userData.user != undefined ? (
-                                <h4 className="user-name">{userData.user.UserCn}</h4>
-                            ) : (
-                                ""
-                            )}
+                            {userData.user !== undefined
+                                ? <h4 className="user-name">{userData.user.UserCn}</h4>
+                                : ""
+                            }
                         </li>
                     </ul>
                 </div>
@@ -97,7 +93,7 @@ const Navbar = () => {
                             </li>
                         </Link>
 
-                        {userData.user != undefined ? (
+                        {userData.user !== undefined ? (
                             <>
                                 <Link to="/add-reservation" style={{textDecoration: "none"}}>
                                     <motion.li
@@ -112,8 +108,7 @@ const Navbar = () => {
                                 <Link to="/" style={{textDecoration: "none"}}>
                                     <li
                                         onClick={DownloadCal}
-                                        className="navbar-list-item px-3 py-2 mx-1"
-                                    >
+                                        className="navbar-list-item px-3 py-2 mx-1">
                                         <h4 className="my-auto navbar-op">Export Calendar</h4>
                                     </li>
                                 </Link>
