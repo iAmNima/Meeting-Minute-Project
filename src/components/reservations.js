@@ -3,6 +3,7 @@ import profile_pic from "../assets/default_profile.png";
 import {motion} from "framer-motion";
 import UserContext from "../Context/UserContext";
 import axios from "axios";
+import moment from "moment";
 /* eslint-disable */
 
 
@@ -77,9 +78,9 @@ const Reservations = ({day}) => {
 
             {reservations.map((reservation) => {
                 if (!showAvailability &&
-                    reservation.day === day &&
-                    (reservation.roomNr == roomNr ||
-                        (roomNr == 0 && reservation.roomNr !== 1))
+                    reservation.day === moment(day).format("DD.MM.YYYY") &&
+                    (reservation.roomNr === roomNr ||
+                        (roomNr === 0 && reservation.roomNr !== 1))
                 ) {
                     console.log(reservation.roomNr);
                     // only returning resurvations for that day:
@@ -127,7 +128,7 @@ const Reservations = ({day}) => {
                     );
                 }
                 // showing availabilities instead of reservations:
-                if (reservation.day === day && reservation.roomNr == 1 && showAvailability) {
+                if (reservation.day === moment(day).format("DD.MM.YYYY") && reservation.roomNr === 1 && showAvailability) {
                     return (
                         <motion.div
                             key={reservation._id}
@@ -136,7 +137,7 @@ const Reservations = ({day}) => {
                             animate={{x: 0}}
                             transition={{type: "spring", stiffness: 50}}
                         >
-                            {userData.user && reservation.name == userData.user.UserCn && (
+                            {userData.user && reservation.name === userData.user.UserCn && (
                                 <div
                                     className="delete-icon-reservation"
                                     onClick={deleteHandler.bind(this, reservation._id)}
@@ -170,7 +171,7 @@ const Reservations = ({day}) => {
                     );
                 }
             })}
-            {noReservation == true && <h4>No reservation on this day!</h4>}
+            {noReservation && <h4>No reservation on this day!</h4>}
         </div>
     );
 };

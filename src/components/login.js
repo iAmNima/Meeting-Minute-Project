@@ -23,7 +23,6 @@ export default function Login() {
     e.preventDefault();
     try {
       const loginUser = { username, password, UserCn , UserEmail };
-      console.log(loginUser);
       axios
         .post("http://localhost:5000/users/auth", loginUser)
         .then((Response) => {
@@ -77,7 +76,7 @@ export default function Login() {
               <div className="form-group">
                 <input
                   type="username"
-                  Name="username"
+                  name="username"
                   className="name-form-login"
                   placeholder="Enter your username"
                   value={username}
@@ -89,7 +88,7 @@ export default function Login() {
               <div className="form-group">
                 <input
                   type="password"
-                  Name="password"
+                  name="password"
                   className="name-form-login"
                   placeholder="Enter your password"
                   value={password}
@@ -98,7 +97,7 @@ export default function Login() {
                 />
               </div>
 
-              <div class="d-flex justify-content-center">
+              <div className="d-flex justify-content-center">
                 <input
                   type="submit"
                   value="Log in"

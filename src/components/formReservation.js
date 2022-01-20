@@ -1,9 +1,7 @@
 import React, { useState, useContext } from "react";
-//import DayPicker from 'react-day-picker';
 import "react-day-picker/lib/style.css";
 import axios from "axios";
 import "antd/dist/antd.css";
-import { setDay } from "date-fns";
 import UserContext from "../Context/UserContext";
 import { motion } from "framer-motion";
 
@@ -19,8 +17,6 @@ function useFormReservation() {
 
 function FormReservation({ day, setShowModal }) {
   const { userData, setUserData } = useContext(UserContext);
-  const {email , setEmail} = useState("");
-  const [name, setName] = useState("");
   const [roomNr, setRoomNr] = useState();
   const [startTime, setStartTime] = useState("");
   const [stopTime, setStopTime] = useState("");
@@ -32,7 +28,7 @@ function FormReservation({ day, setShowModal }) {
       name: userData.user.UserCn,
       roomNr: roomNr,
       timeSlot: startTime + " - " + stopTime,
-      day: day,
+      day: day.format("DD.MM.YYYY"),
     };
     console.log(reservation);
     axios
@@ -63,9 +59,8 @@ function FormReservation({ day, setShowModal }) {
 
       <div className="form-group">
         <select
-          class="form-control"
-          className="room-form"
-          Name="roomNr"
+          className="room-form form-control"
+          name="roomNr"
           onChange={(e) => {
             console.log(e.target.value);
             setRoomNr(e.target.value);
@@ -84,7 +79,7 @@ function FormReservation({ day, setShowModal }) {
       <div className="form-group">
         <input
           type="time"
-          Name="startTime"
+          name="startTime"
           className="startTime-form"
           value={startTime}
           onChange={(e) => {
@@ -92,7 +87,7 @@ function FormReservation({ day, setShowModal }) {
 
             // Add 1 hour to end time
             let endTime = e.target.value.split(":");
-            if (endTime[0] == "23") {
+            if (endTime[0] === "23") {
               endTime[0] = "00";
             } else {
               let endTimeInt = parseInt(endTime[0]);
@@ -110,7 +105,7 @@ function FormReservation({ day, setShowModal }) {
         />
         <input
           type="time"
-          Name="stopTime"
+          name="stopTime"
           className="stopTime-form"
           value={stopTime}
           onChange={(e) => {
@@ -131,7 +126,7 @@ function FormReservation({ day, setShowModal }) {
           <br />
           Stop Time: {stopTime}
           <br />
-          Day: {day}
+          Day: {day.format("DD.MM.YYYY")}
         </pre>
       </div>
 

@@ -4,19 +4,11 @@ import "antd/dist/antd.css";
 import "react-day-picker/lib/style.css";
 import Form from "./formReservation";
 import Modal from "./Modal";
+import moment from "moment";
 
 const AddReservation = () => {
-  const [day, setDay] = useState("");
-  const [selectedDay, setSelectedDay] = useState({});
+  const [day, setDay] = useState(moment());
   const [showModal, setShowModal] = useState(false);
-
-  //useEffects:
-  useEffect(() => {
-    //------setting selected day as today:
-    let time = new Date();
-    setSelectedDay(time);
-    setDay(time.toLocaleDateString());
-  }, []);
 
   return (
     <div>
@@ -26,10 +18,9 @@ const AddReservation = () => {
           <div className="col-lg-5 d-flex mx-auto">
             <DayPicker
               onDayClick={(e) => {
-                setDay(e.toLocaleDateString());
-                setSelectedDay(e);
+                setDay(moment(e));
               }}
-              selectedDays={selectedDay}
+              selectedDays={day.toDate()}
             />
           </div>
           <div className="col-lg-5 d-flex mx-auto">
