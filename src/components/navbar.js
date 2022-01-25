@@ -45,7 +45,7 @@ const Navbar = () => {
             const duration = moment.duration(moment(tempSt[1], "hh:mm").diff(moment(tempSt[0], "hh:mm"))).asMinutes();
             return {
                 title: 'Availability',
-                start: [time.year(), time.month() + 1, time.day(), Number(st_1[0]), Number(st_1[1])],
+                start: [time.year(), time.month() + 1, time.date(), Number(st_1[0]), Number(st_1[1])],
                 duration: {minutes: duration},
             }
         })
